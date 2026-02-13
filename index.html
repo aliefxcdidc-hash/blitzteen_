@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blitzteen · MAN 1 Nganjuk</title>
+    <!-- Font & Icons Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(165deg, #0a1e2c 0%, #0c2b3c 100%);
+            color: #e3f0fd;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ███ ELEGANT DIGITAL BACKGROUND - LESS IS MORE ███ */
+        .digital-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .subtle-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 180, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .binary-elegant {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            color: rgba(64, 224, 255, 0.1);
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        .binary-col {
+            animation: fadeFloat 20s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes fadeFloat {
+            0% { transform: translateY(-100%); opacity: 0.1; }
+            50% { opacity: 0.2; }
+            100% { transform: translateY(100vh); opacity: 0.1; }
+        }
+
+        .floating-icons-elegant {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .floating-icons-elegant i {
+            position: absolute;
+            color: rgba(0, 200, 255, 0.1);
+            font-size: 1.8rem;
+            animation: gentleFloat 25s infinite ease-in-out;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 50;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px 40px;
+        }
+
+        /* ███ HEADER ELEGAN - TANPA CHROMEBOOK ███ */
+        .header-premium {
+            background: rgba(10, 30, 45, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 200, 255, 0.25);
+            border-radius: 32px;
+            padding: 30px 40px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 15px 35px rgba(0, 100, 200, 0.2);
+            position: relative;
+        }
+
+        .brand-elegant h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #b0ebff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .brand-elegant h1 i {
+            color: #4ad0ff;
+            -webkit-text-fill-color: initial;
+            margin-right: 8px;
+        }
+
+        .institution-badge {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .institution-badge span {
+            background: rgba(0, 150, 255, 0.12);
+            padding: 8px 22px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 200, 255, 0.4);
+            font-size: 0.95rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .wali-kelas-premium {
+            background: rgba(0, 140, 210, 0.18);
+            backdrop-filter: blur(8px);
+            padding: 16px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 230, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 0 30px rgba(0, 180, 255, 0.2);
+        }
+
+        .wali-kelas-premium i {
+            color: #ffd966;
+            font-size: 1.9rem;
+        }
+
+        /* ███ SLIDE CARD - ELEGANT REFINED ███ */
+        .slide-card {
+            background: rgba(12, 34, 48, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 48px;
+            padding: 45px 45px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 80, 120, 0.25);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-card:hover {
+            border-color: rgba(0, 230, 255, 0.5);
+            box-shadow: 0 0 50px rgba(0, 160, 255, 0.2);
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 8px solid #3ad1ff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: -0.01em;
+        }
+
+        .slide-title i {
+            color: #7ae9ff;
+            font-size: 2rem;
+        }
+
+        /* SLIDE 1 - TENTANG KELAS DIGITAL (TANPA CHROMEBOOK) */
+        .digital-concept {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin: 30px 0 20px;
+        }
+
+        .concept-item {
+            background: rgba(0, 120, 180, 0.15);
+            padding: 28px 28px;
+            border-radius: 32px;
+            text-align: center;
+            border: 1px solid rgba(0, 200, 255, 0.25);
+            min-width: 150px;
+            backdrop-filter: blur(4px);
+            transition: 0.3s;
+        }
+
+        .concept-item i {
+            font-size: 2.8rem;
+            color: #aaf0ff;
+            margin-bottom: 12px;
+        }
+
+        .concept-item span {
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+        }
+
+        /* SLIDE 2 - 36 SISWA DENGAN TAMPILAN ELEGAN */
+        .student-grid-elegant {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .student-item {
+            background: rgba(20, 55, 75, 0.4);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(0, 200, 255, 0.15);
+            backdrop-filter: blur(4px);
+            transition: 0.2s;
+            font-weight: 450;
+        }
+
+        .student-item:hover {
+            background: rgba(0, 140, 200, 0.25);
+            border-color: #3ec8ff;
+            transform: translateY(-3px);
+        }
+
+        .student-item i {
+            color: #f9e281;
+            font-size: 1rem;
+        }
+
+        /* SLIDE 3 - STRUKTUR KELAS EKSEKUTIF */
+        .struktur-elegant {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .struktur-card {
+            background: linear-gradient(145deg, #0f3a4a, #0a2c38);
+            padding: 28px 25px;
+            border-radius: 36px;
+            border: 1px solid #33ccff;
+            min-width: 210px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,150,255,0.15);
+        }
+
+        .struktur-card i {
+            font-size: 2.3rem;
+            color: #b3ecff;
+            margin-bottom: 16px;
+        }
+
+        .jabatan-premium {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #a6ecff;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #49d6ff;
+            display: inline-block;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .nama-pejabat {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* SLIDE 4 - DIGITAL SIGNATURE & ELEGAN */
+        .digital-signature {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .signature-item {
+            text-align: center;
+        }
+
+        .signature-item i {
+            font-size: 3.5rem;
+            color: #66d9ff;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .motto-premium {
+            font-size: 1.9rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(0,200,255,0.3);
+            border-bottom: 1px solid rgba(0,200,255,0.3);
+            margin-top: 35px;
+            letter-spacing: 2px;
+            color: #d4f4ff;
+        }
+
+        .footer-elegant {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,200,255,0.2);
+            color: rgba(180, 240, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* REMOVE ALL CHROMEBOOK/DEVICE MENTIONS */
+        .no-device {
+            /* stylistic empty */
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 20px; }
+            .header-premium { flex-direction: column; align-items: start; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- DIGITAL BACKGROUND YANG ELEGAN (TIDAK MENGGANGGU) -->
+    <div class="digital-bg">
+        <div class="subtle-grid"></div>
+        <div class="binary-elegant">
+            <div class="binary-col" style="animation-delay: 0s;">0 1 1 0 1 0 0 1 1 0</div>
+            <div class="binary-col" style="animation-delay: 3s;">1 0 0 1 0 1 1 0 0 1</div>
+            <div class="binary-col" style="animation-delay: 6s;">0 1 1 1 0 0 1 0 1 0</div>
+            <div class="binary-col" style="animation-delay: 2s;">1 1 0 0 1 1 0 1 0 0</div>
+            <div class="binary-col" style="animation-delay: 5s;">0 1 0 1 1 0 0 1 1 0</div>
+        </div>
+    </div>
+    
+    <div class="floating-icons-elegant">
+        <i class="fas fa-circle" style="top: 15%; left: 8%;"></i>
+        <i class="fas fa-cloud" style="top: 75%; left: 90%;"></i>
+        <i class="fas fa-wave-square" style="top: 45%; left: 20%;"></i>
+        <i class="fas fa-signal" style="top: 80%; left: 15%;"></i>
+        <i class="fas fa-database" style="top: 25%; left: 85%;"></i>
+        <i class="fas fa-shield" style="top: 60%; left: 70%;"></i>
+    </div>
+
+    <div class="container">
+
+        <!-- HEADER PREMIUM - TANPA CHROMEBOOK, TANPA 'KAWAN' -->
+        <header class="header-premium" data-aos="fade-down">
+            <div class="brand-elegant">
+                <h1><i class="fas fa-bolt"></i> BLITZTEEN</h1>
+                <div class="institution-badge">
+                    <span><i class="fas fa-university"></i> MAN 1 NGANJUK</span>
+                    <span><i class="fas fa-globe"></i> DIGITAL CLASS</span>
+                </div>
+            </div>
+            <div class="wali-kelas-premium">
+                <i class="fas fa-star"></i>
+                <span>Wali Kelas: <span style="color: #ffe28c;">BU RATNA</span></span>
+                <i class="fas fa-chevron-right" style="font-size: 1.2rem; opacity: 0.8;"></i>
+            </div>
+            <!-- subtle accent -->
+            <div style="position: absolute; bottom: 10px; right: 30px; opacity: 0.2;">
+                <i class="fas fa-minus"></i> <i class="fas fa-minus"></i> <i class="fas fa-minus"></i>
+            </div>
+        </header>
+
+        <!-- SLIDE 1: TENTANG KELAS DIGITAL (ELEGAN, TANPA CHROMEBOOK) -->
+        <div class="slide-card" data-aos="fade-up">
+            <div class="slide-title">
+                <i class="fas fa-digital-tiling"></i> TENTANG BLITZTEEN
+            </div>
+            <p style="font-size: 1.4rem; font-weight: 500; margin-bottom: 30px; background: rgba(0,120,180,0.1); padding: 20px 30px; border-radius: 60px; line-height: 1.5;">
+                <i class="fas fa-quote-left" style="color: #6ed4ff;"></i>  Kelas digital berbasis inovasi, kolaborasi, dan literasi data.  <i class="fas fa-quote-right" style="color: #6ed4ff;"></i>
+            </p>
+            
+            <!-- ELEMEN ALAT SEKOLAH DIGITAL YANG ELEGAN (TANPA CHROMEBOOK/LAPTOP) -->
+            <div class="digital-concept">
+                <div class="concept-item">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Cloud Learning</span>
+                </div>
+                <div class="concept-item">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <span>Immersive Lab</span>
+                </div>
+                <div class="concept-item">
+                    <i class="fas fa-code"></i>
+                    <span>Digital Literacy</span>
+                </div>
+                <div class="concept-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Data Analytic</span>
+                </div>
+                <div class="concept-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Studio</span>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                <span style="border: 1.5px solid #4fc3ff; border-radius: 60px; padding: 12px 35px; background: rgba(0,150,255,0.08);">
+                    <i class="fas fa-arrow-right"></i> 100% Digital Native
+                </span>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: 36 ANGGOTA KELAS - NAMA LENGKAP TANPA 'KAWAN' -->
+        <div class="slide-card" data-aos="fade-up">
+            <div class="slide-title">
+                <i class="fas fa-users-between-lines"></i> ANGGOTA KELAS
+                <span style="font-size: 1.1rem; background: rgba(0,170,255,0.2); padding: 8px 24px; border-radius: 50px; margin-left: 15px;">36 DIGITAL TALENT</span>
+            </div>
+            
+            <div class="student-grid-elegant">
+                <div class="student-item"><i class="fas fa-user"></i> 1. Abdurrahman Habib</div>
+                <div class="student-item"><i class="fas fa-user"></i> 2. Ayudhia Dwi Aryani</div>
+                <div class="student-item"><i class="fas fa-user"></i> 3. Bagas irham wildana</div>
+                <div class="student-item"><i class="fas fa-user"></i> 4. Daniel Mohammad Affandy Habibullah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 5. Danish Mohammad Fatony Habibullah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 6. Dhurotul Karomah Illiyin</div>
+                <div class="student-item"><i class="fas fa-user"></i> 7. Dinda Aini Nur Rohmawati</div>
+                <div class="student-item"><i class="fas fa-user"></i> 8. Farah Syakiena Putri</div>
+                <div class="student-item"><i class="fas fa-user"></i> 9. Fidlotus Salsabil</div>
+                <div class="student-item"><i class="fas fa-user"></i> 10. Frila Ahkmanizah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 11. Haidar Abdillah Nursamsi</div>
+                <div class="student-item"><i class="fas fa-user"></i> 12. Intan Nur Janati</div>
+                <div class="student-item"><i class="fas fa-user"></i> 13. Juny Suw Frederica</div>
+                <div class="student-item"><i class="fas fa-user"></i> 14. Kahla Nursabrina</div>
+                <div class="student-item"><i class="fas fa-user"></i> 15. M Shultan Nawawi</div>
+                <div class="student-item"><i class="fas fa-user"></i> 16. Moh. Bryan Akbar Sebastian Arifin</div>
+                <div class="student-item"><i class="fas fa-user"></i> 17. Muhammad Dicki Setiawan</div>
+                <div class="student-item"><i class="fas fa-user"></i> 18. Muhammad Giras Adjie Murtadho</div>
+                <div class="student-item"><i class="fas fa-user"></i> 19. Muhammad Rifaul Hijaya</div>
+                <div class="student-item"><i class="fas fa-user"></i> 20. Muhammad Solahuddin Al Fakhri</div>
+                <div class="student-item"><i class="fas fa-user"></i> 21. Nadya Permata Putri</div>
+                <div class="student-item"><i class="fas fa-user"></i> 22. Nafal Abiyyu Zaky</div>
+                <div class="student-item"><i class="fas fa-user"></i> 23. Qeyrunanda Reyno Wardhana</div>
+                <div class="student-item"><i class="fas fa-user"></i> 24. Rachmania nur Karimah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 25. Reva Mutiara Grace Singsae</div>
+                <div class="student-item"><i class="fas fa-user"></i> 26. Reyna Vinka Fathin Mufida</div>
+                <div class="student-item"><i class="fas fa-user"></i> 27. Riefri Abdul Jabbar Mahmudi</div>
+                <div class="student-item"><i class="fas fa-user"></i> 28. Risnivia Reza Regina Putri</div>
+                <div class="student-item"><i class="fas fa-user"></i> 29. Rizvia Fiz Azizah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 30. Sinta Nila Sari</div>
+                <div class="student-item"><i class="fas fa-user"></i> 31. Surya Rahmadani</div>
+                <div class="student-item"><i class="fas fa-user"></i> 32. Syifana Elkarima</div>
+                <div class="student-item"><i class="fas fa-user"></i> 33. Tiara Azahrotus Syita</div>
+                <div class="student-item"><i class="fas fa-user"></i> 34. Umi Emiliana Rosyidah</div>
+                <div class="student-item"><i class="fas fa-user"></i> 35. Yeni Artika Nur'aini</div>
+                <div class="student-item"><i class="fas fa-user"></i> 36. Yudho Yoshano Maulidinata Alief</div>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; margin-top: 25px;">
+                <span style="background: rgba(0,180,255,0.1); padding: 10px 30px; border-radius: 60px; border: 1px dashed #3ec8ff;">
+                    <i class="fas fa-check-circle"></i> 36 aktif
+                </span>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: STRUKTUR KELAS EKSEKUTIF -->
+        <div class="slide-card" data-aos="fade-up">
+            <div class="slide-title">
+                <i class="fas fa-sitemap"></i> STRUKTUR KELAS
+            </div>
+            
+            <div class="struktur-elegant">
+                <div class="struktur-card">
+                    <i class="fas fa-crown"></i>
+                    <div class="jabatan-premium">KETUA</div>
+                    <div class="nama-pejabat">Abdurrahman Habib</div>
+                </div>
+                <div class="struktur-card">
+                    <i class="fas fa-user-tie"></i>
+                    <div class="jabatan-premium">WAKIL KETUA</div>
+                    <div class="nama-pejabat">Daniel M. Affandy</div>
+                </div>
+                <div class="struktur-card">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="jabatan-premium">SEKRETARIS 1</div>
+                    <div class="nama-pejabat">Dinda Aini Nur R.</div>
+                </div>
+                <div class="struktur-card">
+                    <i class="fas fa-file-signature"></i>
+                    <div class="jabatan-premium">SEKRETARIS 2</div>
+                    <div class="nama-pejabat">Dhurotul Karomah I.</div>
+                </div>
+                <div class="struktur-card">
+                    <i class="fas fa-coins"></i>
+                    <div class="jabatan-premium">BENDAHARA 1</div>
+                    <div class="nama-pejabat">Sinta Nila Sari</div>
+                </div>
+                <div class="struktur-card">
+                    <i class="fas fa-calculator"></i>
+                    <div class="jabatan-premium">BENDAHARA 2</div>
+                    <div class="nama-pejabat">Haidar Abdillah N.</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                <span style="background: rgba(0,160,255,0.1); padding: 8px 25px; border-radius: 60px;"><i class="fas fa-bolt"></i> Koordinasi Digital</span>
+                <span style="background: rgba(0,160,255,0.1); padding: 8px 25px; border-radius: 60px;"><i class="fas fa-link"></i> Sinergi</span>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: IDENTITAS DIGITAL & MOTTO -->
+        <div class="slide-card" data-aos="fade-up">
+            <div class="slide-title">
+                <i class="fas fa-waveform"></i> DIGITAL IDENTITY
+            </div>
+            
+            <div class="digital-signature">
+                <div class="signature-item">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3 style="font-size: 1.5rem; margin-top: 8px;">Blitzteen</h3>
+                    <p style="opacity: 0.8;">MAN 1 Nganjuk</p>
+                </div>
+                <div class="signature-item">
+                    <i class="fas fa-shield-haltered"></i>
+                    <h3 style="font-size: 1.5rem; margin-top: 8px;">#DigitalNative</h3>
+                    <p style="opacity: 0.8;">Since 2024</p>
+                </div>
+                <div class="signature-item">
+                    <i class="fas fa-globe"></i>
+                    <h3 style="font-size: 1.5rem; margin-top: 8px;">Future Ready</h3>
+                    <p style="opacity: 0.8;">Innovation</p>
+                </div>
+            </div>
+            
+            <div class="motto-premium">
+                <i class="fas fa-quote-left" style="font-size: 1.8rem; opacity: 0.6;"></i> 
+                BEYOND DIGITAL, WE CREATE 
+                <i class="fas fa-quote-right" style="font-size: 1.8rem; opacity: 0.6;"></i>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px; font-size: 1.1rem;">
+                <span><i class="fas fa-check"></i> 36 Future Leaders</span>
+                <span><i class="fas fa-check"></i> Wali Kelas: Bu Ratna</span>
+            </div>
+        </div>
+
+        <!-- FOOTER ELEGAN -->
+        <div class="footer-elegant">
+            <span>© 2025 BLITZTEEN · MAN 1 NGANJUK</span>
+            <span><i class="fas fa-diamond"></i> DIGITAL EXCELLENCE</span>
+            <span><i class="fas fa-star"></i> Wali Kelas: BU RATNA</span>
+        </div>
+
+    </div>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: false, mirror: true });
+    </script>
+    
+    <!-- sedikit tambahan binary elegan -->
+    <script>
+        (function addElegantBinary() {
+            let binaryContainer = document.querySelector('.binary-elegant');
+            for (let i = 0; i < 6; i++) {
+                let col = document.createElement('div');
+                col.className = 'binary-col';
+                col.style.animationDelay = (i * 1.2) + 's';
+                col.style.left = (i * 12 + 5) + '%';
+                col.innerText = '1 0 1 0 0 1 1 0 1 0 1 1';
+                binaryContainer.appendChild(col);
+            }
+        })();
+    </script>
+
+</body>
+</html>
